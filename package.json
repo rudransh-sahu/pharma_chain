@@ -1,0 +1,10 @@
+{
+  "name": "pharmachain-prototype",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "db:setup": "node prototype/setup.mjs",
+    "start": "node prototype/server.mjs"
+  }
+}

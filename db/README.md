@@ -1,7 +1,8 @@
 # PharmaChain database
 
-This directory contains the database-only Review 2 implementation for PostgreSQL 17.
-It intentionally contains no frontend or API code.
+This directory contains the PostgreSQL 17 schema, demo data, and tests for PharmaChain.
+
+The browser prototype that uses this database is documented in [../prototype/README.md](../prototype/README.md).
 
 ## Requirements
 

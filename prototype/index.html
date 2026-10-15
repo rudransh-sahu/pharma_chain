@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f4">
+  <title>PharmaChain | Pharmacy operations</title>
+  <style>
+    :root{--ink:#172821;--muted:#6e7c73;--paper:#f5f7f4;--card:#fff;--line:#e4eae5;--green:#176c4d;--green-soft:#e8f4ed;--red:#b74336;--red-soft:#fbefec;--amber:#9a6812;--amber-soft:#fff5df;--shadow:0 10px 28px #173a2410}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.45 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit}.shell{min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:238px;padding:25px 17px;background:#123b2c;color:#e8f2eb;display:flex;flex-direction:column}.brand{display:flex;align-items:center;gap:11px;padding:4px 8px 30px;font-weight:700;font-size:17px;letter-spacing:-.3px}.brandmark{width:34px;height:34px;border-radius:11px;background:#b9e2c8;color:#123b2c;display:grid;place-items:center;font-size:20px}.nav-label{padding:0 10px;color:#9eb8a8;text-transform:uppercase;letter-spacing:1.2px;font-size:10px;font-weight:700;margin:7px 0 8px}.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;color:#c6d7cc;text-align:left;padding:11px;border-radius:9px;display:flex;align-items:center;gap:11px}.nav button.active,.nav button:hover{background:#ffffff16;color:white}.nav .icon{font-size:17px;width:19px;text-align:center}.side-bottom{margin-top:auto;padding:13px 10px 3px;color:#a9c0af;font-size:11px}.db-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#70d59b;margin-right:7px}.main{margin-left:238px;padding:27px 34px 48px;max-width:1600px}.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:25px}.eyebrow{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.4px;font-weight:700}.title{font-size:27px;letter-spacing:-.8px;margin:4px 0 0}.top-actions{display:flex;align-items:center;gap:12px}.branch-select{border:1px solid var(--line);background:white;color:var(--ink);padding:10px 13px;border-radius:9px;min-width:180px}.avatar{width:36px;height:36px;background:#dcebe0;border-radius:50%;display:grid;place-items:center;color:#275b40;font-weight:700}.content{display:grid;gap:18px}.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.metric,.panel{background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow)}.metric{padding:17px 18px}.metric-head{font-size:12px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}.metric-symbol{width:28px;height:28px;background:var(--green-soft);color:var(--green);border-radius:8px;display:grid;place-items:center;font-size:15px}.metric-value{font-size:27px;font-weight:700;letter-spacing:-.8px;margin-top:8px}.metric-note{font-size:11px;color:var(--muted);margin-top:2px}.two-col{display:grid;grid-template-columns:minmax(0,1.38fr) minmax(300px,.82fr);gap:17px}.panel{padding:18px 19px}.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}.panel-title{font-size:15px;font-weight:700;margin:0;letter-spacing:-.2px}.panel-sub{font-size:11px;color:var(--muted);margin-top:3px}.link-button{border:0;background:transparent;color:var(--green);font-weight:650;font-size:12px;padding:4px}.table-wrap{overflow:auto}table{border-collapse:collapse;width:100%;white-space:nowrap}th{text-align:left;color:#849087;font-size:10px;text-transform:uppercase;letter-spacing:.8px;padding:9px 9px;border-bottom:1px solid var(--line)}td{padding:11px 9px;border-bottom:1px solid #edf0ed;font-size:12px}tbody tr:last-child td{border-bottom:0}.drug-main{font-weight:650}.drug-sub{font-size:10px;color:var(--muted);margin-top:2px}.status{display:inline-flex;align-items:center;border-radius:99px;padding:4px 8px;font-size:10px;font-weight:700;letter-spacing:.3px}.status.CRITICAL{background:var(--red-soft);color:var(--red)}.status.WARNING{background:var(--amber-soft);color:var(--amber)}.status.OK{background:var(--green-soft);color:var(--green)}.status.none{background:#f0f2f0;color:#66736a}.actions-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.action-panel{min-height:236px}.action-icon{font-size:21px;color:var(--green);margin-bottom:9px}.form-row{display:grid;gap:6px;margin:13px 0}.form-row label{font-size:11px;color:var(--muted);font-weight:650}.form-row input,.form-row select{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px 10px;color:var(--ink);background:white;outline:none}.form-row input:focus,.form-row select:focus{border-color:#75a98d;box-shadow:0 0 0 3px #176c4d13}.btn{border:0;border-radius:8px;padding:9px 12px;background:var(--green);color:white;font-weight:650;font-size:12px}.btn:hover{background:#11583e}.btn.secondary{background:#eff5f0;color:var(--green);border:1px solid #dce9df}.btn.full{width:100%;margin-top:2px}.btn:disabled{opacity:.55;cursor:wait}.feedback{min-height:17px;font-size:11px;margin-top:8px;color:var(--green)}.feedback.error{color:var(--red)}.sub-list{display:grid;gap:8px;margin-top:12px}.sub-option{display:flex;justify-content:space-between;align-items:center;padding:9px;border:1px solid var(--line);border-radius:9px}.sub-option strong{font-size:12px}.sub-option span{display:block;color:var(--muted);font-size:10px}.empty{padding:23px 10px;text-align:center;color:var(--muted);font-size:12px}.banner{padding:11px 14px;background:#edf5ef;border:1px solid #d8e8dc;border-radius:10px;color:#376349;font-size:11px}.loading{color:var(--muted);padding:25px;text-align:center}.footer{font-size:10px;color:#849087;text-align:center;padding:4px}.mobile-menu{display:none}
+    @media(max-width:1100px){.sidebar{width:205px}.main{margin-left:205px;padding:24px}.metric-grid{grid-template-columns:repeat(2,1fr)}.actions-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.two-col{grid-template-columns:1fr}}
+    @media(max-width:700px){.sidebar{position:static;width:auto;height:auto;padding:12px 15px;flex-direction:row;align-items:center}.brand{padding:0;margin-right:auto}.nav-label,.nav,.side-bottom{display:none}.mobile-menu{display:block;background:transparent;border:0;color:white;font-size:20px}.main{margin:0;padding:20px 14px 35px}.title{font-size:23px}.topbar{align-items:flex-start}.top-actions{gap:7px}.branch-select{min-width:135px;padding:8px}.avatar{display:none}.metric-grid{gap:9px}.metric{padding:13px}.metric-value{font-size:23px}.actions-grid{grid-template-columns:1fr}.panel{padding:15px}.action-panel{min-height:unset}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brandmark">✚</span><span>PharmaChain</span></div>
+      <div class="nav-label">Workspace</div>
+      <nav class="nav">
+        <button class="active" data-scroll="overview"><span class="icon">▦</span>Overview</button>
+        <button data-scroll="inventory"><span class="icon">▤</span>Inventory</button>
+        <button data-scroll="forecast"><span class="icon">⌁</span>Reorder forecast</button>
+        <button data-scroll="actions"><span class="icon">⇄</span>Operations</button>
+      </nav>
+      <div class="side-bottom"><span class="db-dot"></span>Connected to PostgreSQL<br><span style="padding-left:14px">Database rules active</span></div>
+      <button class="mobile-menu" aria-label="Menu">☰</button>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div><div class="eyebrow">Pharmacy operations</div><h1 class="title">Branch overview</h1></div>
+        <div class="top-actions"><select class="branch-select" id="branchSelect" aria-label="Branch"></select><div class="avatar">RS</div></div>
+      </header>
+      <div class="content" id="overview">
+        <div class="metric-grid" id="metrics"><div class="metric loading">Loading branch data…</div></div>
+        <section class="two-col">
+          <article class="panel" id="inventory">
+            <div class="panel-head"><div><h2 class="panel-title">Inventory position</h2><div class="panel-sub">Sellable units by medicine · expired and recalled batches excluded</div></div><button class="link-button" id="refreshButton">Refresh data ↻</button></div>
+            <div class="table-wrap" id="inventoryTable"></div>
+          </article>
+          <article class="panel" id="forecast">
+            <div class="panel-head"><div><h2 class="panel-title">Reorder forecast</h2><div class="panel-sub">Rolling 14 day demand from dispense history</div></div><button class="link-button" id="refreshForecast">Refresh history</button></div>
+            <div class="table-wrap" id="forecastTable"></div>
+          </article>
+        </section>
+        <div class="banner">Safety rules run in PostgreSQL: expired stock is rejected, interaction pairs are blocked, and transfer/dispense writes commit atomically.</div>
+        <section id="actions">
+          <div class="panel-head" style="margin:2px 1px 0"><div><h2 class="panel-title">Try an operation</h2><div class="panel-sub">Actions below write to your local demo database</div></div></div>
+          <div class="actions-grid">
+            <article class="panel action-panel">
+              <div class="action-icon">⇣</div><h3 class="panel-title">Dispense a prescription</h3><div class="panel-sub">FEFO allocation across valid batches</div>
+              <form id="dispenseForm">
+                <div class="form-row"><label for="dispenseDrug">Medicine</label><select id="dispenseDrug"></select></div>
+                <div class="form-row"><label for="dispenseQty">Quantity</label><input id="dispenseQty" type="number" min="1" value="5" required></div>
+                <div class="form-row"><label for="pharmacist">Pharmacist</label><input id="pharmacist" value="demo-pharmacist" required></div>
+                <button class="btn full" type="submit">Dispense stock</button><div class="feedback" id="dispenseFeedback"></div>
+              </form>
+            </article>
+            <article class="panel action-panel">
+              <div class="action-icon">⌕</div><h3 class="panel-title">Find a substitute</h3><div class="panel-sub">Only currently stocked candidates appear</div>
+              <div class="form-row"><label for="subDrug">Out of stock medicine</label><select id="subDrug"></select></div>
+              <div class="form-row"><label for="subQty">Needed quantity</label><input id="subQty" type="number" min="1" value="5"></div>
+              <button class="btn secondary full" id="findSubButton">Show suitable options</button><div id="subResults" class="sub-list"></div><div class="feedback" id="subFeedback"></div>
+            </article>
+            <article class="panel action-panel">
+              <div class="action-icon">⇄</div><h3 class="panel-title">Transfer between branches</h3><div class="panel-sub">One atomic stock movement</div>
+              <form id="transferForm">
+                <div class="form-row"><label for="sourceBatch">Source batch</label><select id="sourceBatch" required></select></div>
+                <div class="form-row"><label for="destinationBranch">Destination branch</label><select id="destinationBranch" required></select></div>
+                <div class="form-row"><label for="transferQty">Quantity</label><input id="transferQty" type="number" min="1" value="5" required></div>
+                <button class="btn full" type="submit">Transfer stock</button><div class="feedback" id="transferFeedback"></div>
+              </form>
+            </article>
+            <article class="panel action-panel">
+              <div class="action-icon">⚕</div><h3 class="panel-title">Check interactions</h3><div class="panel-sub">Database blocks unsafe combinations when saving</div>
+              <div class="form-row"><label for="interactionDrugs">Choose medicines (⌘/Ctrl-click for multiple)</label><select id="interactionDrugs" multiple size="4" style="height:auto"></select></div>
+              <button class="btn secondary full" id="interactionButton">Save prescription check</button><div class="feedback" id="interactionFeedback"></div>
+            </article>
+            <article class="panel action-panel">
+              <div class="action-icon">▣</div><h3 class="panel-title">Generate draft order</h3><div class="panel-sub">Uses open reorder alerts and supplier terms</div>
+              <div class="form-row"><label>Approval stays with a human reviewer</label><div style="padding:10px;border-radius:8px;background:#f4f7f4;color:var(--muted);font-size:11px">The database creates draft POs and links the triggering alerts.</div></div>
+              <button class="btn full" id="orderButton">Refresh alerts & make draft</button><div class="feedback" id="orderFeedback"></div>
+            </article>
+          </div>
+        </section>
+        <div class="footer">PharmaChain database prototype · Local development demo · PostgreSQL 17</div>
+      </div>
+    </main>
+  </div>
+  <script>
+    const $ = (id) => document.getElementById(id);
+    let state = { branches: [], inventory: [], recommendations: [], suppliers: [], branchId: 1 };
+    async function api(path, options = {}) {
+      const response = await fetch(path, { headers: { 'content-type': 'application/json' }, ...options });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Request failed.');
+      return data;
+    }
+    function setFeedback(id, message, error = false) {
+      const el = $(id); el.textContent = message; el.classList.toggle('error', error);
+    }
+    function money(value) { return `₹${Number(value || 0).toFixed(2)}`; }
+    function esc(value) { return String(value ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+    function fillSelect(id, items, valueKey, labelFn) {
+      const select = $(id); const old = select.value;
+      select.innerHTML = items.map((item) => `<option value="${esc(item[valueKey])}">${esc(labelFn(item))}</option>`).join('');
+      if (items.some((item) => String(item[valueKey]) === old)) select.value = old;
+    }
+    async function loadOverview() {
+      const data = await api(`/api/overview?branch_id=${state.branchId}`); state = { ...state, ...data };
+      fillSelect('branchSelect', state.branches, 'branch_id', (x) => x.branch_name);
+      $('branchSelect').value = String(state.branchId);
+      fillSelect('destinationBranch', state.branches.filter((x) => Number(x.branch_id) !== Number(state.branchId)), 'branch_id', (x) => x.branch_name);
+      const drugs = state.inventory;
+      fillSelect('dispenseDrug', drugs, 'drug_id', (x) => `${x.brand_name} · ${x.available_units} units`);
+      fillSelect('subDrug', drugs, 'drug_id', (x) => `${x.brand_name} · ${x.available_units} units`);
+      fillSelect('interactionDrugs', drugs, 'drug_id', (x) => x.brand_name);
+      renderMetrics(); renderInventory(); renderForecast(); await loadBatches();
+    }
+    function renderMetrics() {
+      const stock = state.inventory.reduce((sum, item) => sum + Number(item.available_units), 0);
+      const urgent = state.recommendations.filter((x) => x.alert_status === 'CRITICAL').length;
+      const warnings = state.recommendations.filter((x) => x.alert_status === 'WARNING').length;
+      const active = state.recommendations.filter((x) => Number(x.suggested_reorder_quantity) > 0).length;
+      const cards = [['Sellable units', stock, 'Across active medicines', '▤'], ['Critical alerts', urgent, 'Stock below lead time demand', '⚑'], ['Reorder suggestions', active, `${warnings} warning level`, '⌁'], ['Active medicines', state.inventory.length, 'In this branch catalog', '✚']];
+      $('metrics').innerHTML = cards.map(([label, value, note, icon]) => `<div class="metric"><div class="metric-head">${label}<span class="metric-symbol">${icon}</span></div><div class="metric-value">${Number(value).toLocaleString()}</div><div class="metric-note">${note}</div></div>`).join('');
+    }
+    function renderInventory() {
+      $('inventoryTable').innerHTML = `<table><thead><tr><th>Medicine</th><th>Sellable</th><th>Next expiry</th></tr></thead><tbody>${state.inventory.map((x) => `<tr><td><div class="drug-main">${esc(x.brand_name)}</div><div class="drug-sub">${esc(x.dosage_form)} · ${esc(x.strength_mg)} mg</div></td><td><strong>${Number(x.available_units).toLocaleString()}</strong> units</td><td>${x.next_expiry ? esc(x.next_expiry) : '—'}</td></tr>`).join('')}</tbody></table>`;
+    }
+    function renderForecast() {
+      const rows = state.recommendations.filter((x) => x.alert_status !== 'OK' || Number(x.average_14_day_demand) > 0);
+      $('forecastTable').innerHTML = rows.length ? `<table><thead><tr><th>Medicine</th><th>14d avg</th><th>Suggested</th><th>Alert</th></tr></thead><tbody>${rows.map((x) => `<tr><td><div class="drug-main">${esc(x.brand_name)}</div><div class="drug-sub">Stock ${x.usable_stock} · ROP ${x.reorder_point}</div></td><td>${Number(x.average_14_day_demand).toFixed(1)}/day</td><td><strong>${x.suggested_reorder_quantity}</strong></td><td><span class="status ${esc(x.alert_status)}">${esc(x.alert_status)}</span></td></tr>`).join('')}</tbody></table>` : '<div class="empty">No demand or reorder alerts yet.</div>';
+    }
+    async function loadBatches() {
+      const drugId = $('dispenseDrug').value || state.inventory[0]?.drug_id;
+      if (!drugId) return;
+      const batches = await api(`/api/batches?branch_id=${state.branchId}&drug_id=${drugId}`);
+      fillSelect('sourceBatch', batches.filter((x) => !x.is_recalled && Number(x.quantity_on_hand) > 0), 'batch_id', (x) => `${x.batch_number} · ${x.quantity_on_hand} units · exp ${x.expires_on}`);
+    }
+    $('branchSelect').addEventListener('change', async (event) => { state.branchId = Number(event.target.value); await refresh(); });
+    $('dispenseDrug').addEventListener('change', loadBatches);
+    async function refresh() { try { await loadOverview(); } catch (e) { document.body.insertAdjacentHTML('afterbegin', `<div style="padding:12px;background:#a33;color:white">${esc(e.message)}</div>`); } }
+    $('refreshButton').addEventListener('click', refresh);
+    $('refreshForecast').addEventListener('click', async () => { try { const result = await api('/api/refresh-forecast', { method: 'POST', body: '{}' }); setFeedback('subFeedback', result.message); await refresh(); } catch (e) { setFeedback('subFeedback', e.message, true); } });
+    $('dispenseForm').addEventListener('submit', async (event) => {
+      event.preventDefault(); const button = event.submitter; button.disabled = true;
+      try { const result = await api('/api/dispense', { method: 'POST', body: JSON.stringify({ branchId: state.branchId, drugId: $('dispenseDrug').value, quantity: $('dispenseQty').value, pharmacist: $('pharmacist').value }) }); setFeedback('dispenseFeedback', `${result.message} Ref ${result.reference}.`); await refresh(); }
+      catch (e) { setFeedback('dispenseFeedback', e.message, true); } finally { button.disabled = false; }
+    });
+    $('findSubButton').addEventListener('click', async () => {
+      $('subResults').innerHTML = ''; setFeedback('subFeedback', 'Searching current stock…');
+      try { const results = await api(`/api/substitutes?branch_id=${state.branchId}&drug_id=${$('subDrug').value}&quantity=${$('subQty').value}`); $('subResults').innerHTML = results.length ? results.map((x) => `<div class="sub-option"><div><strong>${esc(x.brand_name)}</strong><span>${esc(x.substitution_tier.replaceAll('_', ' '))} · ${x.total_available_stock} units · ${money(x.unit_price)}</span></div><span class="status OK">#${x.suggestion_rank}</span></div>`).join('') : '<div class="empty">No suitable in-stock substitute found.</div>'; setFeedback('subFeedback', 'Suggestions require pharmacist review.'); }
+      catch (e) { setFeedback('subFeedback', e.message, true); }
+    });
+    $('transferForm').addEventListener('submit', async (event) => {
+      event.preventDefault(); const button = event.submitter; button.disabled = true;
+      try { const result = await api('/api/transfer', { method: 'POST', body: JSON.stringify({ sourceBatchId: $('sourceBatch').value, destinationBranchId: $('destinationBranch').value, quantity: $('transferQty').value, actor: 'demo-manager' }) }); setFeedback('transferFeedback', result.message); await refresh(); }
+      catch (e) { setFeedback('transferFeedback', e.message, true); } finally { button.disabled = false; }
+    });
+    $('interactionButton').addEventListener('click', async () => {
+      const drugIds = [...$('interactionDrugs').selectedOptions].map((x) => x.value);
+      try { const result = await api('/api/prescriptions', { method: 'POST', body: JSON.stringify({ branchId: state.branchId, drugIds }) }); setFeedback('interactionFeedback', result.message); }
+      catch (e) { setFeedback('interactionFeedback', e.message, true); }
+    });
+    $('orderButton').addEventListener('click', async (event) => {
+      const button = event.currentTarget; button.disabled = true;
+      try { const result = await api('/api/reorder', { method: 'POST', body: JSON.stringify({ branchId: state.branchId }) }); const details = result.orders.map((x) => `${x.po_number} (${x.line_count} line${x.line_count === 1 ? '' : 's'}, ${money(x.total_amount)})`).join(', '); setFeedback('orderFeedback', `${result.message}${details ? ` ${details}` : ''}`); await refresh(); }
+      catch (e) { setFeedback('orderFeedback', e.message, true); } finally { button.disabled = false; }
+    });
+    document.querySelectorAll('[data-scroll]').forEach((button) => button.addEventListener('click', () => { document.getElementById(button.dataset.scroll)?.scrollIntoView({ behavior: 'smooth' }); document.querySelectorAll('.nav button').forEach((b) => b.classList.toggle('active', b === button)); }));
+    refresh();
+  </script>
+</body>
+</html>

@@ -264,4 +264,6 @@ CROSS JOIN generate_series(0, 13) AS generated(days_ago)
 WHERE b.branch_code = 'CENTRAL'
   AND d.brand_name = 'AspirinCare';
 
+REFRESH MATERIALIZED VIEW mv_daily_demand;
+
 COMMIT;
